@@ -52,7 +52,7 @@ export function LlmsSection({
           const curl = curlCommand(sdk.llms.raw);
           return (
             <TabsContent key={key} value={key} className="mt-0">
-              <div className="rounded-md border border-border bg-card p-6">
+              <div className="rounded-md border border-border bg-card p-4 sm:p-6">
                 <div className="font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-orange-deep">
                   {sdk.displayName}
                 </div>
@@ -61,12 +61,12 @@ export function LlmsSection({
                 </div>
                 <p className="mt-3 max-w-[70ch] font-sans text-[14px] leading-relaxed text-ink-soft">
                   {t(
-                    `Complete API reference for ${sdk.displayName}, formatted per llmstxt.org.`,
-                    `面向 AI agent 的 ${sdk.displayName} SDK 完整 API 参考（llmstxt.org 格式）。`,
+                    `Full API reference for ${sdk.displayName}, in plain text your agent can read directly.`,
+                    `${sdk.displayName} SDK 完整 API 参考，纯文本，Agent 可直接读取。`,
                   )}
                 </p>
 
-                <pre className="mt-5 overflow-x-auto rounded-md border border-terminal-rule bg-terminal-bg px-4 py-3 font-mono text-[13px] leading-[1.6] text-terminal-fg">
+                <pre className="mt-4 overflow-x-auto rounded-md border border-terminal-rule bg-terminal-bg px-3 py-2.5 font-mono text-[11px] leading-[1.7] tracking-[0.04em] text-terminal-fg sm:mt-5 sm:px-4 sm:py-3 sm:text-[13px]">
                   {curl}
                 </pre>
 

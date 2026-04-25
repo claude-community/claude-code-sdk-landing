@@ -22,7 +22,7 @@ export function SectionShell({
     <section
       id={id}
       className={cn(
-        "px-6 py-20 md:py-24",
+        "px-4 py-10 sm:px-6 sm:py-14 md:py-16",
         bordered && "border-t border-border",
         className,
       )}
@@ -35,7 +35,7 @@ export function SectionShell({
           </h2>
         )}
         {lead && (
-          <p className="mt-4 max-w-[60ch] font-sans text-[17px] leading-relaxed text-ink-soft">
+          <p className="mt-4 max-w-[60ch] font-sans text-[15px] leading-relaxed text-ink-soft sm:text-[17px]">
             {lead}
           </p>
         )}

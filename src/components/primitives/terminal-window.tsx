@@ -32,16 +32,16 @@ export function TerminalWindow({
       )}
       data-variant={variant}
     >
-      <div className="flex items-center gap-2 border-b border-terminal-rule bg-terminal-bg-2 px-4 py-2.5">
-        <span aria-hidden className="size-[11px] rounded-full bg-tl-red" />
-        <span aria-hidden className="size-[11px] rounded-full bg-tl-yellow" />
-        <span aria-hidden className="size-[11px] rounded-full bg-tl-green" />
-        <span className="mx-auto font-mono text-[11.5px] text-ansi-dim">
+      <div className="flex items-center gap-2 border-b border-terminal-rule bg-terminal-bg-2 px-3 py-2.5 sm:px-4">
+        <span aria-hidden className="size-[11px] shrink-0 rounded-full bg-tl-red" />
+        <span aria-hidden className="size-[11px] shrink-0 rounded-full bg-tl-yellow" />
+        <span aria-hidden className="size-[11px] shrink-0 rounded-full bg-tl-green" />
+        <span className="mx-auto truncate font-mono text-[11.5px] text-ansi-dim">
           {title}
         </span>
-        <span aria-hidden className="w-[46px]" />
+        <span aria-hidden className="hidden w-[33px] shrink-0 sm:block" />
       </div>
-      <pre className="overflow-x-auto px-5 py-4 font-mono text-[13px] leading-[1.6] text-terminal-fg">
+      <pre className="overflow-x-auto px-3 py-3 font-mono text-[11px] leading-[1.7] tracking-[0.04em] text-terminal-fg sm:px-5 sm:py-4 sm:text-[13px]">
         {body}
       </pre>
     </div>

@@ -15,16 +15,16 @@ export function InlineCode({
   return (
     <code
       className={cn(
-        "inline-flex items-center gap-2 rounded-[3px] border border-border bg-muted px-2 py-1 font-mono text-[13px] leading-none text-foreground",
+        "inline-flex items-center gap-2 rounded-[3px] border border-border bg-muted px-2 py-1 font-mono text-[12px] leading-snug text-foreground sm:text-[13px]",
         className,
       )}
     >
       {variant === "shell" && (
-        <span aria-hidden className="text-muted-foreground">
+        <span aria-hidden className="shrink-0 text-muted-foreground">
           $
         </span>
       )}
-      <span className="truncate">{children}</span>
+      <span className="break-all">{children}</span>
     </code>
   );
 }

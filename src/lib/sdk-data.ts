@@ -9,6 +9,7 @@ export type SdkMeta = {
   name: string; // display handle e.g. "Node.js"
   displayName: string; // short tab/label display e.g. "Node.js"
   repo: string;
+  npm?: string;
   llms: {
     raw: string;
     blob: string;
@@ -48,8 +49,19 @@ const nodeQuickstart: AnsiLineTokens[] = [
     { color: "purple", text: "const" },
     { text: " claude = " },
     { color: "purple", text: "new" },
-    { text: " ClaudeCode();" },
+    { text: " ClaudeCode({" },
   ],
+  [
+    { text: "  apiKey: " },
+    { color: "cyan", text: '"sk-ant-..."' },
+    { text: "," },
+  ],
+  [
+    { text: "  baseUrl: " },
+    { color: "cyan", text: '"https://api.anthropic.com"' },
+    { text: "," },
+  ],
+  [{ text: "});" }],
   [
     { color: "purple", text: "const" },
     { text: " session = claude.startSession({" },
@@ -57,11 +69,6 @@ const nodeQuickstart: AnsiLineTokens[] = [
   [
     { text: "  model: " },
     { color: "cyan", text: '"sonnet"' },
-    { text: "," },
-  ],
-  [
-    { text: "  dangerouslySkipPermissions: " },
-    { color: "purple", text: "true" },
     { text: "," },
   ],
   [{ text: "});" }],
@@ -313,6 +320,7 @@ export const sdks: Record<SdkKey, SdkMeta> = {
     name: "Node.js",
     displayName: "Node.js",
     repo: "https://github.com/oceanz0312/claude-code-node",
+    npm: "https://www.npmjs.com/package/claude-code-node",
     llms: {
       raw: "https://raw.githubusercontent.com/oceanz0312/claude-code-node/master/llms.txt",
       blob: "https://github.com/oceanz0312/claude-code-node/blob/master/llms.txt",
@@ -326,14 +334,14 @@ export const sdks: Record<SdkKey, SdkMeta> = {
     ],
     testOutput: { command: "bun test", lines: nodeTestOutput },
     description: {
-      en: "SDK for driving Claude Code from Node.js or Bun. Clean async API, fully-typed session management, AsyncIterable streaming, dual ESM + CJS output.",
-      zh: "在 Node.js / Bun 中驱动 Claude Code 的 SDK。简洁的异步 API、类型化会话管理、AsyncIterable 流式输出、ESM + CJS 双格式产物。",
+      en: "Drop into a Node.js or Bun project to control Claude Code from code. Fully typed, streaming output via AsyncIterable, ESM and CJS both supported.",
+      zh: "嵌入 Node.js 或 Bun 项目，用代码控制 Claude Code。完整 TypeScript 类型、AsyncIterable 流式输出、ESM 和 CJS 均可用。",
     },
     features: [
       { en: "AsyncIterable streaming", zh: "AsyncIterable 流式" },
       { en: "AbortSignal cancellation", zh: "AbortSignal 取消" },
       { en: "ESM + CJS dual output", zh: "ESM + CJS 双格式" },
-      { en: "Fake CLI simulator", zh: "Fake CLI 模拟器" },
+      { en: "CLI simulator for tests", zh: "CLI 模拟器（测试用）" },
     ],
   },
 
@@ -355,8 +363,8 @@ export const sdks: Record<SdkKey, SdkMeta> = {
     ],
     testOutput: { command: "go test", lines: goTestOutput },
     description: {
-      en: "Zero-dependency Go SDK — pure standard library. context.Context for cancellation, goroutines for concurrent I/O, sealed RelayEvent interface via an unexported method.",
-      zh: "零依赖 Go SDK — 纯标准库实现。使用 context.Context 取消、goroutine 并发 I/O、通过未导出方法实现密封 RelayEvent 接口。",
+      en: "Pure standard library — no external dependencies. Iterate results with a simple Next() loop, cancel any time with context.Context.",
+      zh: "纯标准库，无外部依赖。用 Next() 逐条处理结果，context.Context 随时取消。",
     },
     features: [
       { en: "Next() iterator", zh: "Next() 迭代器" },
@@ -384,8 +392,8 @@ export const sdks: Record<SdkKey, SdkMeta> = {
     ],
     testOutput: { command: "pytest", lines: pythonTestOutput },
     description: {
-      en: "Zero-dependency Python SDK — fully async with asyncio. Dataclass types, AsyncIterator streaming, background thread for non-blocking log writes. Python 3.9+.",
-      zh: "零依赖 Python SDK — 基于 asyncio 全异步。dataclass 类型、AsyncIterator 流式输出、后台线程非阻塞日志写入。支持 Python 3.9+。",
+      en: "Fully async with asyncio — no external dependencies. Stream results with an AsyncIterator, get typed output via dataclasses. Python 3.9+.",
+      zh: "基于 asyncio 全异步，无外部依赖。AsyncIterator 流式输出，dataclass 类型化结果。支持 Python 3.9+。",
     },
     features: [
       { en: "AsyncIterator stream", zh: "AsyncIterator 流式" },
@@ -483,56 +491,57 @@ export const siteCopy = {
       zh: "CLAUDE CODE SDK · NODE / GO / PYTHON",
     },
     title: {
-      en: "One SDK shape, three languages.",
-      zh: "一套 SDK 形态，三种语言。",
+      en: "One SDK, three languages.",
+      zh: "一套 SDK，三种语言。",
     },
     lead: {
-      en: "A library you embed in your Node.js, Go, or Python program to drive Claude Code programmatically. Same architecture across three languages, language-idiomatic APIs, 35+ CLI flags mapped, E2E + unit tests across all three.",
-      zh: "嵌入到 Node.js / Go / Python 程序中，以编程方式驱动 Claude Code 的库。三种语言架构一致、API 遵循语言惯例、完整映射 35+ CLI 参数、三者皆有完整的 E2E 与单元测试覆盖。",
+      en: "A library you embed in your Node.js, Go, or Python program to control Claude Code from code. The same capabilities across all three — streaming, session management, 35+ options — with APIs that feel natural in each language.",
+      zh: "嵌入到 Node.js、Go 或 Python 程序里，用代码控制 Claude Code。三种语言能力一致——流式输出、会话管理、35+ 参数——各自遵循本语言的惯用风格。",
     },
     cta: {
       github: { en: "View on GitHub", zh: "查看 GitHub" },
+      npm: { en: "View on npm", zh: "查看 npm" },
       llms: { en: "Read llms.txt", zh: "查看 llms.txt" },
     },
     tabHint: {
-      en: "Pick a language to see its install command, quickstart, and test footprint.",
-      zh: "选择一种语言，查看其安装命令、快速开始代码和测试覆盖。",
+      en: "Pick a language to see the install command, an example, and test numbers.",
+      zh: "选择语言，查看安装方式、示例代码和测试覆盖。",
     },
   },
   tested: {
-    eyebrow: { en: "TESTED & RELIABLE", zh: "测试与稳定性" },
+    eyebrow: { en: "TESTS", zh: "测试覆盖" },
     title: {
-      en: "Real tests, real outputs.",
-      zh: "真实测试、真实输出。",
+      en: "Tested against the real thing.",
+      zh: "针对真实环境的测试。",
     },
     lead: {
-      en: "Each SDK ships its own test suite — unit plus live E2E against the Claude Code CLI. These are snapshots of the actual runs, not decorative screenshots.",
-      zh: "每个 SDK 都有独立的测试套件 — 单元测试加针对 Claude Code CLI 的实机 E2E。下面是真实运行输出，不是装饰截图。",
+      en: "Each SDK runs its tests against the actual Claude Code CLI — not a mock. The output below is from a real run.",
+      zh: "每个 SDK 直接跑在 Claude Code CLI 上，不是 mock。下面是真实运行输出。",
     },
   },
   comparison: {
-    eyebrow: { en: "CROSS-LANGUAGE PARITY", zh: "跨语言对标" },
+    eyebrow: { en: "COMPARISON", zh: "横向对比" },
     title: {
-      en: "Same architecture, idiomatic surface.",
-      zh: "相同的架构，地道的 API。",
+      en: "Different languages, same job.",
+      zh: "语言不同，但做的事一样。",
     },
     lead: {
-      en: "Every SDK maps the same set of CLI flags and ships the same capability surface. The only thing that changes is the language-native primitive used to express each pattern.",
-      zh: "三个 SDK 映射同一组 CLI 参数，提供同一套能力。不同之处仅在于每种模式所用的语言原生原语。",
+      en: "All three SDKs cover the same feature set. The only difference is how each one fits into its language.",
+      zh: "三个 SDK 覆盖同一套功能，区别只在于各自遵循本语言的惯用写法。",
     },
     headers: {
       feature: { en: "Feature", zh: "特性" },
     },
   },
   llms: {
-    eyebrow: { en: "FOR AGENTS", zh: "面向智能体" },
+    eyebrow: { en: "FOR AI AGENTS", zh: "面向 AI Agent" },
     title: {
-      en: "curl it, pipe it, feed it to your LLM.",
-      zh: "curl 它、管道传输、喂给你的 LLM。",
+      en: "Give it to your agent.",
+      zh: "直接喂给你的 Agent。",
     },
     lead: {
-      en: "Each SDK ships an llms.txt at the repo root — a complete API reference formatted for AI agents. Versioned alongside the code, so agents always read the right surface for the version you have installed.",
-      zh: "每个 SDK 在仓库根目录提供 llms.txt — 为 AI agent 设计的完整 API 参考。与源码同版本，agent 读到的永远是你所装版本对应的 API。",
+      en: "Each SDK ships an llms.txt at the repo root — a plain-text API reference your agent or LLM can read directly. Updated whenever the API changes.",
+      zh: "每个 SDK 仓库根目录都有一个 llms.txt——纯文本 API 参考，Agent 或 LLM 可以直接读取。随 API 变更同步更新。",
     },
     curl: {
       en: "Copy curl",

@@ -46,16 +46,16 @@ export function ComparisonSection() {
                 key={row.feature.en}
                 className="border-b border-border last:border-b-0 hover:bg-transparent"
               >
-                <TableCell className="font-sans text-[14px] text-muted-foreground">
+                <TableCell className="whitespace-normal font-sans text-[13px] text-muted-foreground sm:text-[14px]">
                   {t(row.feature.en, row.feature.zh)}
                 </TableCell>
-                <TableCell className="font-mono text-[13px] text-foreground">
+                <TableCell className="whitespace-normal font-mono text-[12px] text-foreground sm:text-[13px]">
                   {row.node}
                 </TableCell>
-                <TableCell className="font-mono text-[13px] text-foreground">
+                <TableCell className="whitespace-normal font-mono text-[12px] text-foreground sm:text-[13px]">
                   {row.go}
                 </TableCell>
-                <TableCell className="font-mono text-[13px] text-foreground">
+                <TableCell className="whitespace-normal font-mono text-[12px] text-foreground sm:text-[13px]">
                   {row.python}
                 </TableCell>
               </TableRow>
