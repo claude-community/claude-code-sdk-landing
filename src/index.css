@@ -1,0 +1,199 @@
+/* =============================================================
+   Claude Code SDK Landing — token + theme entry
+
+   Two layers:
+     1. `:root` imports the design system primitives (--cc-*).
+     2. shadcn semantic names (--background, --primary, etc.) are
+        aliased onto layer 1, then exposed to Tailwind v4 via
+        `@theme inline`.
+
+   Do not write hex literals in components. Use Tailwind utilities
+   (bg-background / text-ansi-green / font-display / ...) or
+   `var(--cc-*)` inline.
+   ============================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    /* ---------- Design system primitives (--cc-*) ---------- */
+
+    /* Warm neutrals */
+    --cc-pampas: #f4f3ee;
+    --cc-pampas-2: #edebe3;
+    --cc-bone: #faf9f5;
+    --cc-cloudy: #b1ada1;
+    --cc-cloudy-2: #8c8a82;
+    --cc-ink: #1f1e1b;
+    --cc-ink-soft: #3d3d3a;
+    --cc-rule: #dcd9cf;
+    --cc-rule-strong: #c9c5b8;
+
+    /* Terminal surfaces */
+    --cc-terminal-bg: #161513;
+    --cc-terminal-bg-2: #1f1d1a;
+    --cc-terminal-bg-3: #2a2825;
+    --cc-terminal-fg: #ecead3;
+    --cc-terminal-dim: #8a8780;
+    --cc-terminal-rule: #2e2c28;
+
+    /* Brand accent — Claude Orange */
+    --cc-orange: #c15f3c;
+    --cc-orange-soft: #d97757;
+    --cc-orange-deep: #9f4c2d;
+    --cc-orange-tint: #f4e1d6;
+
+    /* ANSI accents */
+    --cc-ansi-green: #5a8e5a;
+    --cc-ansi-red: #c44141;
+    --cc-ansi-yellow: #c99b2c;
+    --cc-ansi-blue: #3f7cac;
+    --cc-ansi-purple: #8e5ba0;
+    --cc-ansi-cyan: #4f9a99;
+
+    /* Traffic-light (terminal chrome) */
+    --cc-tl-red: #e36256;
+    --cc-tl-yellow: #e2bd46;
+    --cc-tl-green: #58c745;
+
+    /* Typography */
+    --cc-font-display:
+      "Fraunces", "Tiempos Headline", "Iowan Old Style", Georgia,
+      "Times New Roman", serif;
+    --cc-font-sans:
+      "Inter", "Styrene B", -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    --cc-font-mono:
+      "JetBrains Mono", "SF Mono", "Cascadia Code", ui-monospace, Menlo,
+      Consolas, monospace;
+
+    /* Shadows */
+    --cc-shadow-xs: 0 1px 2px rgba(31, 30, 27, 0.04);
+    --cc-shadow-sm: 0 2px 6px rgba(31, 30, 27, 0.06);
+    --cc-shadow-md: 0 8px 24px rgba(31, 30, 27, 0.08);
+    --cc-shadow-lg: 0 18px 48px rgba(31, 30, 27, 0.12);
+    --cc-shadow-terminal:
+      0 24px 60px -12px rgba(31, 30, 27, 0.25),
+      0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+    /* ---------- shadcn semantic aliases → design system ---------- */
+
+    --background: var(--cc-pampas);
+    --foreground: var(--cc-ink);
+    --card: var(--cc-bone);
+    --card-foreground: var(--cc-ink);
+    --popover: var(--cc-bone);
+    --popover-foreground: var(--cc-ink);
+    --primary: var(--cc-orange);
+    --primary-foreground: #ffffff;
+    --secondary: var(--cc-pampas-2);
+    --secondary-foreground: var(--cc-ink);
+    --muted: var(--cc-pampas-2);
+    --muted-foreground: var(--cc-cloudy-2);
+    --accent: var(--cc-pampas-2);
+    --accent-foreground: var(--cc-ink);
+    --destructive: var(--cc-ansi-red);
+    --border: var(--cc-rule);
+    --input: var(--cc-rule);
+    --ring: var(--cc-orange);
+    --radius: 0.5rem;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--cc-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@theme inline {
+  /* shadcn semantic surface */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Design system scenarios exposed as utilities */
+  --color-ink: var(--cc-ink);
+  --color-ink-soft: var(--cc-ink-soft);
+  --color-rule: var(--cc-rule);
+  --color-rule-strong: var(--cc-rule-strong);
+  --color-orange: var(--cc-orange);
+  --color-orange-soft: var(--cc-orange-soft);
+  --color-orange-deep: var(--cc-orange-deep);
+  --color-orange-tint: var(--cc-orange-tint);
+
+  /* ANSI → text-ansi-* / bg-ansi-* */
+  --color-ansi-green: var(--cc-ansi-green);
+  --color-ansi-red: var(--cc-ansi-red);
+  --color-ansi-yellow: var(--cc-ansi-yellow);
+  --color-ansi-blue: var(--cc-ansi-blue);
+  --color-ansi-purple: var(--cc-ansi-purple);
+  --color-ansi-cyan: var(--cc-ansi-cyan);
+  --color-ansi-dim: var(--cc-terminal-dim);
+
+  /* Terminal surfaces */
+  --color-terminal-bg: var(--cc-terminal-bg);
+  --color-terminal-bg-2: var(--cc-terminal-bg-2);
+  --color-terminal-bg-3: var(--cc-terminal-bg-3);
+  --color-terminal-fg: var(--cc-terminal-fg);
+  --color-terminal-rule: var(--cc-terminal-rule);
+
+  /* Traffic-light dots */
+  --color-tl-red: var(--cc-tl-red);
+  --color-tl-yellow: var(--cc-tl-yellow);
+  --color-tl-green: var(--cc-tl-green);
+
+  /* Font families */
+  --font-display: var(--cc-font-display);
+  --font-sans: var(--cc-font-sans);
+  --font-mono: var(--cc-font-mono);
+
+  /* Shadows */
+  --shadow-cc-xs: var(--cc-shadow-xs);
+  --shadow-cc-sm: var(--cc-shadow-sm);
+  --shadow-cc-md: var(--cc-shadow-md);
+  --shadow-cc-lg: var(--cc-shadow-lg);
+  --shadow-cc-terminal: var(--cc-shadow-terminal);
+
+  /* Radius scale — keep default --radius but expose named steps */
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 12px);
+}
