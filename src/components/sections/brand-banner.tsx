@@ -3,7 +3,8 @@ export function BrandBanner() {
     <div className="relative overflow-hidden border-b border-rule bg-gradient-to-r from-[#cc6b48] via-orange-soft to-orange-tint">
       <div className="mx-auto flex max-w-[1200px] items-center justify-center px-4 py-6 sm:px-6 sm:py-8">
         <p className="font-mono text-[13px] font-medium tracking-[0.18em] text-white/90 sm:text-[15px]">
-          CLAUDE CODE SDK
+          <span className="font-normal italic tracking-[0.08em] text-white/65">Introducing</span>
+          {" "}CLAUDE CODE SDK
           <span className="ml-1 inline-block h-[1.1em] w-[2px] translate-y-[1px] animate-blink bg-white/90" />
         </p>
       </div>
