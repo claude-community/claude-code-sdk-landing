@@ -7,7 +7,7 @@ export type BilingualText = { en: string; zh: string };
 export type SdkMeta = {
   key: SdkKey;
   name: string; // display handle e.g. "Node.js"
-  displayName: string; // full display e.g. "Node.js / TypeScript"
+  displayName: string; // short tab/label display e.g. "Node.js"
   repo: string;
   llms: {
     raw: string;
@@ -31,7 +31,7 @@ export type SdkMeta = {
 };
 
 /* =============================================================
-   Node.js / TypeScript
+   Node.js
    ============================================================= */
 
 const nodeQuickstart: AnsiLineTokens[] = [
@@ -311,7 +311,7 @@ export const sdks: Record<SdkKey, SdkMeta> = {
   node: {
     key: "node",
     name: "Node.js",
-    displayName: "Node.js / TypeScript",
+    displayName: "Node.js",
     repo: "https://github.com/oceanz0312/claude-code-node",
     llms: {
       raw: "https://raw.githubusercontent.com/oceanz0312/claude-code-node/master/llms.txt",
@@ -326,8 +326,8 @@ export const sdks: Record<SdkKey, SdkMeta> = {
     ],
     testOutput: { command: "bun test", lines: nodeTestOutput },
     description: {
-      en: "TypeScript SDK for driving Claude Code from Node.js or Bun. Clean async API, typed session management, AsyncIterable streaming, dual ESM + CJS output.",
-      zh: "在 Node.js / Bun 中驱动 Claude Code 的 TypeScript SDK。简洁的异步 API、类型化会话管理、AsyncIterable 流式输出、ESM + CJS 双格式产物。",
+      en: "SDK for driving Claude Code from Node.js or Bun. Clean async API, fully-typed session management, AsyncIterable streaming, dual ESM + CJS output.",
+      zh: "在 Node.js / Bun 中驱动 Claude Code 的 SDK。简洁的异步 API、类型化会话管理、AsyncIterable 流式输出、ESM + CJS 双格式产物。",
     },
     features: [
       { en: "AsyncIterable streaming", zh: "AsyncIterable 流式" },
