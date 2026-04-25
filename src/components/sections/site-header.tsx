@@ -13,7 +13,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-sm">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        <a href="#top" className="flex items-baseline gap-1.5 font-display text-[18px] leading-none text-foreground sm:text-[22px] sm:gap-2">
+        <a href="#top" className="flex items-center gap-2 font-display text-[18px] leading-none text-foreground sm:text-[22px] sm:gap-2.5">
+          <img src="/favicon.png" alt="" className="h-7 w-7 sm:h-8 sm:w-8" />
           <span>{siteCopy.header.wordmark.brand}</span>
           <span className="text-primary">{siteCopy.header.wordmark.accent}</span>
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">

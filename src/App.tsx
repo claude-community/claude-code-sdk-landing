@@ -7,12 +7,14 @@ import { TestedSection } from "@/components/sections/tested-section";
 import { ComparisonSection } from "@/components/sections/comparison-section";
 import { LlmsSection } from "@/components/sections/llms-section";
 import { SiteFooter } from "@/components/sections/site-footer";
+import { BrandBanner } from "@/components/sections/brand-banner";
 
 function Landing() {
   const [activeSdk, setActiveSdk] = useState<SdkKey>("node");
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
+      <BrandBanner />
       <main>
         <Hero activeSdk={activeSdk} onSelectSdk={setActiveSdk} />
         <TestedSection activeSdk={activeSdk} />
