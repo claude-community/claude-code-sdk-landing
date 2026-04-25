@@ -17,7 +17,7 @@ function Landing() {
         <Hero activeSdk={activeSdk} onSelectSdk={setActiveSdk} />
         <TestedSection activeSdk={activeSdk} />
         <ComparisonSection />
-        <LlmsSection />
+        <LlmsSection activeSdk={activeSdk} onSelectSdk={setActiveSdk} />
       </main>
       <SiteFooter />
     </div>
