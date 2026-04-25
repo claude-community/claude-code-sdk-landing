@@ -41,6 +41,14 @@ export default defineConfig([
       "react-refresh/only-export-components": "off",
     },
   },
+  // lib/ holds data modules and Context providers co-located with
+  // their hooks. Fast refresh guarantees don't apply here by convention.
+  {
+    files: ["src/lib/**/*.{ts,tsx}"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  },
   // Config files are allowed to be pragmatic.
   {
     files: ["eslint.config.js", "vite.config.ts"],
