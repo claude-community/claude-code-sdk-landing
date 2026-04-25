@@ -2,5 +2,18 @@
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "buildCommand": "vite build",
   "outputDirectory": "dist",
-  "framework": "vite"
+  "framework": "vite",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "claude-code-sdk-landing.vercel.app"
+        }
+      ],
+      "destination": "https://cc-sdk.vercel.app/$1",
+      "permanent": true
+    }
+  ]
 }
