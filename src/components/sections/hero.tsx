@@ -106,7 +106,7 @@ export function Hero({
               <div className="mb-3 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-orange-deep">
                 01 · {t("Install", "安装")}
               </div>
-              <InlineCode variant="shell">{sdk.install}</InlineCode>
+              <InlineCode variant="shell" copyText={sdk.install}>{sdk.install}</InlineCode>
             </div>
 
             <div>
