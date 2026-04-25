@@ -1,0 +1,17 @@
+Logo source notes
+=================
+
+The official Claude Code logos live on Mintlify's CDN at:
+  https://mintcdn.com/claude-code/c5r9_6tjPMzFdDDT/logo/light.svg
+  https://mintcdn.com/claude-code/c5r9_6tjPMzFdDDT/logo/dark.svg
+
+These were not directly downloadable in this build environment.
+
+The SVGs in this folder (claude-code-logo-light.svg / -dark.svg) are
+placeholder lockups built to the brand spec described in README.md:
+  - terminal-prompt glyph (>_) in a dark rounded square
+  - "claude" wordmark in JetBrains Mono / Inter
+  - "code" word in Claude Orange (#C15F3C)
+
+To swap in the real lockups: replace these two SVG files. The CSS
+references them by filename only.

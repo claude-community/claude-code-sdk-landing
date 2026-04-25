@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code SDK · Marketing UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #F4F3EE; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  @keyframes blink { 0%, 50% { opacity: 1 } 51%, 100% { opacity: 0 } }
+
+  /* === TWEAK: Visual mode === */
+  body[data-mode="terminal"] { background: #161513 !important; }
+  body[data-mode="terminal"] section[data-mk-section] { background: #161513 !important; color: #ECEAE3 !important; }
+  body[data-mode="terminal"] section[data-mk-section][data-alt="true"] { background: #1F1D1A !important; }
+  body[data-mode="terminal"] header[data-mk-nav] { background: rgba(22,21,19,0.82) !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+  body[data-mode="terminal"] [data-mk-card] { background: #1F1D1A !important; border-color: #2E2C28 !important; }
+  body[data-mode="terminal"] h1, body[data-mode="terminal"] h2, body[data-mode="terminal"] h3 { color: #ECEAE3 !important; }
+  body[data-mode="terminal"] [data-mk-body], body[data-mode="terminal"] p { color: #C9C5BB !important; }
+  body[data-mode="terminal"] [data-mk-navlink] { color: #C9C5BB !important; }
+  body[data-mode="terminal"] [data-mk-brandtext] { color: #ECEAE3 !important; }
+  body[data-mode="terminal"] [data-mk-secondary] { background: transparent !important; color: #ECEAE3 !important; border-color: #3A372F !important; }
+  body[data-mode="terminal"] [data-mk-tabs] { background: #1F1D1A !important; border-color: #2E2C28 !important; }
+  body[data-mode="terminal"] [data-mk-tab-active] { background: #2E2C28 !important; color: #ECEAE3 !important; }
+  body[data-mode="terminal"] [data-mk-install] { background: #1F1D1A !important; border-color: #2E2C28 !important; color: #ECEAE3 !important; }
+
+  body[data-mode="paper"] { background: #FAF9F5 !important; }
+  body[data-mode="paper"] section[data-mk-section] { background: #FAF9F5 !important; }
+  body[data-mode="paper"] section[data-mk-section][data-alt="true"] { background: #F4F3EE !important; }
+  body[data-mode="paper"] [data-mk-card] { background: #FFFFFF !important; border-color: #E6E1D4 !important; }
+  body[data-mode="paper"] header[data-mk-nav] { background: rgba(250,249,245,0.82) !important; }
+
+  /* === TWEAK: Display voice (display headings only — Fraunces by default) === */
+  body[data-voice="monospace"] h1, body[data-voice="monospace"] h2, body[data-voice="monospace"] h3,
+  body[data-voice="monospace"] [data-mk-display] {
+    font-family: 'JetBrains Mono', 'SF Mono', monospace !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em !important;
+  }
+  body[data-voice="grotesque"] h1, body[data-voice="grotesque"] h2, body[data-voice="grotesque"] h3,
+  body[data-voice="grotesque"] [data-mk-display] {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  /* === TWEAK: Density === */
+  body[data-density="standard"] section[data-mk-section] { padding-top: 64px !important; padding-bottom: 64px !important; }
+  body[data-density="standard"] [data-mk-card] { padding: 20px !important; }
+  body[data-density="standard"] h1[data-mk-display] { font-size: 68px !important; }
+  body[data-density="standard"] h2[data-mk-display] { font-size: 40px !important; }
+
+  body[data-density="dense"] section[data-mk-section] { padding-top: 40px !important; padding-bottom: 40px !important; }
+  body[data-density="dense"] [data-mk-card] { padding: 16px !important; }
+  body[data-density="dense"] [data-mk-grid] { gap: 8px !important; }
+  body[data-density="dense"] h1[data-mk-display] { font-size: 52px !important; }
+  body[data-density="dense"] h2[data-mk-display] { font-size: 32px !important; }
+  body[data-density="dense"] h3[data-mk-display] { font-size: 24px !important; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="TerminalWindow.jsx"></script>
+<script type="text/babel" src="Nav.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="FeatureGrid.jsx"></script>
+<script type="text/babel" src="SurfacesSection.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "mode": "cream",
+  "voice": "editorial",
+  "density": "standard"
+}/*EDITMODE-END*/;
+
+function App() {
+  const [t, setTweak] = window.useTweaks(TWEAK_DEFAULTS);
+  React.useEffect(() => {
+    document.body.dataset.mode = t.mode;
+    document.body.dataset.voice = t.voice;
+    document.body.dataset.density = t.density;
+  }, [t]);
+
+  return (
+    <div>
+      <window.MkNav />
+      <window.MkHero />
+      <window.MkFeatureGrid />
+      <window.MkSurfaces />
+      <window.MkCTA />
+      <window.MkFooter />
+      <window.TweaksPanel title="Tweaks">
+        <window.TweakSection label="Visual mode" />
+        <window.TweakRadio
+          value={t.mode}
+          options={[
+            {value:'cream',    label:'Cream'},
+            {value:'terminal', label:'Terminal'},
+            {value:'paper',    label:'Paper'},
+          ]}
+          onChange={(v) => setTweak('mode', v)}
+        />
+        <window.TweakSection label="Display voice" />
+        <window.TweakRadio
+          value={t.voice}
+          options={[
+            {value:'editorial', label:'Editorial serif'},
+            {value:'monospace', label:'Monospace'},
+            {value:'grotesque', label:'Sans grotesque'},
+          ]}
+          onChange={(v) => setTweak('voice', v)}
+        />
+        <window.TweakSection label="Density" />
+        <window.TweakRadio
+          value={t.density}
+          options={[
+            {value:'editorial', label:'Editorial'},
+            {value:'standard',  label:'Standard'},
+            {value:'dense',     label:'Dense'},
+          ]}
+          onChange={(v) => setTweak('density', v)}
+        />
+      </window.TweaksPanel>
+    </div>
+  );
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+setTimeout(() => root.render(<App />), 0);
+</script>
+</body>
+</html>

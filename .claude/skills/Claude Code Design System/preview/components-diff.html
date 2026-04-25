@@ -1,0 +1,34 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .diff { background:#FAF9F5; border:1px solid var(--cc-border); border-radius:8px; overflow:hidden; font-family: var(--cc-font-mono); font-size: 12.5px; line-height:1.5; }
+  .head { background:#EDEBE3; padding: 8px 12px; display:flex; gap:10px; align-items:center; border-bottom:1px solid var(--cc-border); }
+  .file { color:#1F1E1B; font-weight:500; }
+  .stats { color:#8C8A82; font-size:11.5px; margin-left:auto; }
+  .add{color:#3D6E3D} .rem{color:#9C2E2E}
+  .ln { display:grid; grid-template-columns: 36px 36px 1fr; }
+  .ln .num { padding: 0 8px; color:#B1ADA1; text-align:right; user-select:none; }
+  .ln.add { background: rgba(90,142,90,0.10); }
+  .ln.rem { background: rgba(196,65,65,0.10); }
+  .code { padding: 0 10px; white-space:pre; color:#3D3D3A; }
+  .ln.add .code::before { content:"+ "; color:#3D6E3D; }
+  .ln.rem .code::before { content:"− "; color:#9C2E2E; }
+  .ln.ctx .code::before { content:"  "; color:#B1ADA1; }
+</style></head>
+<body>
+<div class="card">
+  <div class="label-mono">Diff view · used in VS Code panel + Desktop</div>
+  <div class="diff">
+    <div class="head">
+      <span class="file">src/api/users.ts</span>
+      <span class="stats"><span class="add">+8</span> <span class="rem">−3</span></span>
+    </div>
+    <div class="ln ctx"><div class="num">14</div><div class="num">14</div><div class="code">async function getUser(id: string) {</div></div>
+    <div class="ln rem"><div class="num">15</div><div class="num"></div><div class="code">return await api.get(`/users/${id}`);</div></div>
+    <div class="ln add"><div class="num"></div><div class="num">15</div><div class="code">try {</div></div>
+    <div class="ln add"><div class="num"></div><div class="num">16</div><div class="code">  return await api.get(`/users/${id}`);</div></div>
+    <div class="ln add"><div class="num"></div><div class="num">17</div><div class="code">} catch (err) { logger.error(err); throw err; }</div></div>
+    <div class="ln ctx"><div class="num">16</div><div class="num">18</div><div class="code">}</div></div>
+  </div>
+</div>
+</body></html>

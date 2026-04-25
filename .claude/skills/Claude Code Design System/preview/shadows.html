@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tile { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .box { background: #FAF9F5; border-radius: 8px; height: 64px; width: 100%; }
+  .lbl { font-family: var(--cc-font-mono); font-size: 11px; color: var(--cc-fg-1); font-weight:500; }
+  .sub { font-family: var(--cc-font-mono); font-size: 10.5px; color: var(--cc-fg-3); text-align:center }
+</style></head>
+<body>
+<div class="card">
+  <div class="label-mono">Shadows · warm-tinted, never bluish</div>
+  <div class="grid">
+    <div class="tile"><div class="box" style="box-shadow: 0 1px 2px rgba(31,30,27,0.04)"></div><div class="lbl">xs</div><div class="sub">hairline lift</div></div>
+    <div class="tile"><div class="box" style="box-shadow: 0 2px 6px rgba(31,30,27,0.06)"></div><div class="lbl">sm</div><div class="sub">resting card</div></div>
+    <div class="tile"><div class="box" style="box-shadow: 0 8px 24px rgba(31,30,27,0.08)"></div><div class="lbl">md</div><div class="sub">popover · hover</div></div>
+    <div class="tile"><div class="box" style="box-shadow: 0 18px 48px rgba(31,30,27,0.12)"></div><div class="lbl">lg</div><div class="sub">modal · dialog</div></div>
+  </div>
+</div>
+</body></html>

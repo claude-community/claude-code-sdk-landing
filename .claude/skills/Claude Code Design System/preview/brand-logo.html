@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .wrap { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+  .lock { display:flex; align-items:center; gap:10px; padding:14px 18px; border-radius:8px; }
+  .glyph { width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family: var(--cc-font-mono); font-weight:700; font-size:15px; }
+  .word { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size:18px; font-weight:500; letter-spacing:-0.01em; }
+  .light { background:#F4F3EE; }
+  .light .glyph { background:#1F1E1B; color:#C15F3C; }
+  .light .word { color:#1F1E1B; }
+  .light .accent { color:#C15F3C; }
+  .dark { background:#161513; }
+  .dark .glyph { background:#ECEAE3; color:#C15F3C; }
+  .dark .word { color:#ECEAE3; }
+  .dark .accent { color:#D97757; }
+</style></head>
+<body>
+<div class="card">
+  <div class="label-mono">Logo lockup · light + dark</div>
+  <div class="wrap">
+    <div class="lock light">
+      <div class="glyph">&gt;_</div>
+      <div class="word">claude <span class="accent">code</span></div>
+    </div>
+    <div class="lock dark">
+      <div class="glyph">&gt;_</div>
+      <div class="word">claude <span class="accent">code</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

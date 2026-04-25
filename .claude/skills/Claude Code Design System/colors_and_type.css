@@ -1,0 +1,265 @@
+/* ============================================================
+   Claude Code Design System — Tokens
+   Inspired by Anthropic's brand language: warm cream paper +
+   terracotta accent + terminal monospace. The visual story is
+   "agentic coding tool that lives in your terminal" so we balance
+   editorial typography with first-class code/mono surfaces.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* ----------------------------------------------------------
+     PRIMITIVE COLORS — Anthropic brand palette
+     ---------------------------------------------------------- */
+
+  /* Warm neutrals — the "paper" of the brand */
+  --cc-pampas:        #F4F3EE;   /* Cream paper — Anthropic canvas */
+  --cc-pampas-2:      #EDEBE3;   /* Slightly darker cream — alt section */
+  --cc-bone:          #FAF9F5;   /* Lightest — claude.ai chat surface */
+  --cc-cloudy:        #B1ADA1;   /* Warm grey 500 — secondary text on cream */
+  --cc-cloudy-2:      #8C8A82;   /* Warm grey 600 — body on cream */
+  --cc-ink:           #1F1E1B;   /* Near-black, slightly warm — primary text */
+  --cc-ink-soft:      #3D3D3A;   /* Warm dark grey — body */
+  --cc-rule:          #DCD9CF;   /* Hairline rule on cream */
+
+  /* Cool greys for terminal / IDE chrome */
+  --cc-terminal-bg:   #161513;   /* Terminal background — warm black */
+  --cc-terminal-bg-2: #1F1D1A;   /* Sidebar / inset */
+  --cc-terminal-bg-3: #2A2825;   /* Hover / selected line */
+  --cc-terminal-fg:   #ECEAE3;   /* Terminal foreground text */
+  --cc-terminal-dim:  #8A8780;   /* Muted terminal text */
+  --cc-terminal-rule: #2E2C28;
+
+  /* Brand accent — Anthropic's terracotta */
+  --cc-orange:        #C15F3C;   /* "Claude Orange" / Crail */
+  --cc-orange-soft:   #D97757;   /* Lighter — hover, accents */
+  --cc-orange-deep:   #9F4C2D;   /* Pressed */
+  --cc-orange-tint:   #F4E1D6;   /* 12% wash on cream */
+
+  /* Terminal ANSI-style accents (used for syntax / status) */
+  --cc-ansi-green:    #5A8E5A;   /* Success, additions */
+  --cc-ansi-red:      #C44141;   /* Error, deletions */
+  --cc-ansi-yellow:   #C99B2C;   /* Warning, modifications */
+  --cc-ansi-blue:     #3F7CAC;   /* Info, links */
+  --cc-ansi-purple:   #8E5BA0;   /* Special tokens */
+  --cc-ansi-cyan:     #4F9A99;   /* Strings, paths */
+
+  /* Semantic surface tokens (light / cream theme — default) */
+  --cc-bg:            var(--cc-pampas);
+  --cc-bg-elevated:   var(--cc-bone);
+  --cc-bg-inset:      var(--cc-pampas-2);
+  --cc-fg-1:          var(--cc-ink);          /* Primary */
+  --cc-fg-2:          var(--cc-ink-soft);     /* Body */
+  --cc-fg-3:          var(--cc-cloudy-2);     /* Secondary */
+  --cc-fg-4:          var(--cc-cloudy);       /* Tertiary / placeholder */
+  --cc-border:        var(--cc-rule);
+  --cc-border-strong: #C9C5B8;
+
+  --cc-accent:        var(--cc-orange);
+  --cc-accent-hover:  var(--cc-orange-deep);
+  --cc-accent-tint:   var(--cc-orange-tint);
+  --cc-accent-fg:     #FFFFFF;
+
+  /* Semantic status */
+  --cc-success:       var(--cc-ansi-green);
+  --cc-danger:        var(--cc-ansi-red);
+  --cc-warning:       var(--cc-ansi-yellow);
+  --cc-info:          var(--cc-ansi-blue);
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY
+     - Display: Fraunces (closest open-source match to Anthropic's
+       Tiempos / "Copernicus" editorial serif). FLAGGED — see README.
+     - UI / body: Inter (substituting Anthropic's Styrene B).
+     - Mono: JetBrains Mono (terminal-grade).
+     ---------------------------------------------------------- */
+  --cc-font-display: 'Fraunces', 'Tiempos Headline', 'Iowan Old Style',
+                     Georgia, 'Times New Roman', serif;
+  --cc-font-sans:    'Inter', 'Styrene B', -apple-system, 'Segoe UI',
+                     Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cc-font-mono:    'JetBrains Mono', 'SF Mono', 'Cascadia Code',
+                     ui-monospace, Menlo, Consolas, monospace;
+
+  /* Scale — editorial hero down to 12px caption */
+  --cc-fs-display-1: 72px;
+  --cc-fs-display-2: 56px;
+  --cc-fs-h1:        40px;
+  --cc-fs-h2:        28px;
+  --cc-fs-h3:        20px;
+  --cc-fs-h4:        17px;
+  --cc-fs-body:      16px;
+  --cc-fs-body-sm:   14px;
+  --cc-fs-caption:   13px;
+  --cc-fs-mono:      13px;
+  --cc-fs-eyebrow:   12px;
+
+  --cc-lh-tight:     1.05;
+  --cc-lh-snug:      1.2;
+  --cc-lh-normal:    1.45;
+  --cc-lh-relaxed:   1.6;
+  --cc-lh-mono:      1.55;
+
+  --cc-tracking-tight: -0.02em;
+  --cc-tracking-snug:  -0.01em;
+  --cc-tracking-eyebrow: 0.08em;
+
+  /* ----------------------------------------------------------
+     SPACING — 4pt grid
+     ---------------------------------------------------------- */
+  --cc-space-0: 0;
+  --cc-space-1: 4px;
+  --cc-space-2: 8px;
+  --cc-space-3: 12px;
+  --cc-space-4: 16px;
+  --cc-space-5: 24px;
+  --cc-space-6: 32px;
+  --cc-space-7: 48px;
+  --cc-space-8: 64px;
+  --cc-space-9: 96px;
+  --cc-space-10: 128px;
+
+  /* ----------------------------------------------------------
+     RADII
+     ---------------------------------------------------------- */
+  --cc-radius-xs: 3px;     /* Tags, inline code */
+  --cc-radius-sm: 6px;     /* Buttons, inputs */
+  --cc-radius-md: 8px;     /* Cards, popovers */
+  --cc-radius-lg: 12px;    /* Hero cards, terminal window */
+  --cc-radius-xl: 20px;    /* Marketing surfaces */
+  --cc-radius-pill: 999px;
+
+  /* ----------------------------------------------------------
+     SHADOWS & ELEVATION
+     Soft, warm-tinted; never bluish. Terminals get a deeper
+     window-shadow to feel "lifted off the page".
+     ---------------------------------------------------------- */
+  --cc-shadow-xs: 0 1px 2px rgba(31, 30, 27, 0.04);
+  --cc-shadow-sm: 0 2px 6px rgba(31, 30, 27, 0.06);
+  --cc-shadow-md: 0 8px 24px rgba(31, 30, 27, 0.08);
+  --cc-shadow-lg: 0 18px 48px rgba(31, 30, 27, 0.12);
+  --cc-shadow-terminal: 0 24px 60px -12px rgba(31, 30, 27, 0.25),
+                        0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+  /* ----------------------------------------------------------
+     MOTION
+     ---------------------------------------------------------- */
+  --cc-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --cc-ease-emphasized: cubic-bezier(0.32, 0.72, 0, 1);
+  --cc-dur-fast: 120ms;
+  --cc-dur-base: 200ms;
+  --cc-dur-slow: 320ms;
+}
+
+/* Dark / terminal theme override — apply to .cc-dark or [data-theme="dark"] */
+.cc-dark, [data-theme="dark"] {
+  --cc-bg:            var(--cc-terminal-bg);
+  --cc-bg-elevated:   var(--cc-terminal-bg-2);
+  --cc-bg-inset:      var(--cc-terminal-bg-3);
+  --cc-fg-1:          var(--cc-terminal-fg);
+  --cc-fg-2:          #C9C5BB;
+  --cc-fg-3:          var(--cc-terminal-dim);
+  --cc-fg-4:          #5A574F;
+  --cc-border:        var(--cc-terminal-rule);
+  --cc-border-strong: #3A372F;
+  --cc-accent-tint:   rgba(217, 119, 87, 0.16);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply by adding `class="cc-prose"` to a wrapper, or use the
+   utility classes directly.
+   ============================================================ */
+
+.cc-prose, .cc-h1, .cc-h2, .cc-h3, .cc-display-1, .cc-display-2,
+.cc-eyebrow, .cc-body, .cc-caption, .cc-mono {
+  font-family: var(--cc-font-sans);
+  color: var(--cc-fg-1);
+}
+
+.cc-display-1 {
+  font-family: var(--cc-font-display);
+  font-size: var(--cc-fs-display-1);
+  font-weight: 400;
+  line-height: var(--cc-lh-tight);
+  letter-spacing: var(--cc-tracking-tight);
+}
+
+.cc-display-2 {
+  font-family: var(--cc-font-display);
+  font-size: var(--cc-fs-display-2);
+  font-weight: 400;
+  line-height: var(--cc-lh-tight);
+  letter-spacing: var(--cc-tracking-tight);
+}
+
+.cc-h1 {
+  font-family: var(--cc-font-display);
+  font-size: var(--cc-fs-h1);
+  font-weight: 400;
+  line-height: var(--cc-lh-snug);
+  letter-spacing: var(--cc-tracking-snug);
+}
+
+.cc-h2 {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-fs-h2);
+  font-weight: 600;
+  line-height: var(--cc-lh-snug);
+  letter-spacing: var(--cc-tracking-snug);
+}
+
+.cc-h3 {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-fs-h3);
+  font-weight: 600;
+  line-height: var(--cc-lh-snug);
+}
+
+.cc-h4 {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-fs-h4);
+  font-weight: 600;
+  line-height: var(--cc-lh-snug);
+}
+
+.cc-eyebrow {
+  font-family: var(--cc-font-mono);
+  font-size: var(--cc-fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--cc-tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--cc-fg-3);
+}
+
+.cc-body {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-fs-body);
+  font-weight: 400;
+  line-height: var(--cc-lh-relaxed);
+  color: var(--cc-fg-2);
+}
+
+.cc-caption {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-fs-caption);
+  line-height: var(--cc-lh-normal);
+  color: var(--cc-fg-3);
+}
+
+.cc-mono {
+  font-family: var(--cc-font-mono);
+  font-size: var(--cc-fs-mono);
+  line-height: var(--cc-lh-mono);
+  font-feature-settings: "liga" 0;
+}
+
+.cc-code-inline {
+  font-family: var(--cc-font-mono);
+  font-size: 0.92em;
+  background: var(--cc-bg-inset);
+  border: 1px solid var(--cc-border);
+  border-radius: var(--cc-radius-xs);
+  padding: 1px 6px;
+  color: var(--cc-fg-1);
+}

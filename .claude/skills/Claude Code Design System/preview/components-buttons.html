@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .row3 { display:flex; gap:10px; flex-wrap:wrap; align-items:center }
+  button { font-family: var(--cc-font-sans); font-size: 14px; font-weight: 500; padding: 9px 16px; border-radius: 6px; cursor:pointer; border: 1px solid transparent; transition: all 200ms cubic-bezier(0.2,0,0,1); }
+  .primary { background: #C15F3C; color: #fff; border-color: #C15F3C; }
+  .primary:hover { background: #9F4C2D; }
+  .secondary { background: #FAF9F5; color: #1F1E1B; border-color: #DCD9CF; }
+  .secondary:hover { background: #EDEBE3; }
+  .ghost { background: transparent; color: #1F1E1B; border-color: transparent; }
+  .ghost:hover { background: rgba(193,95,60,0.1); color:#C15F3C; }
+  .danger { background:transparent; color:#C44141; border-color:#DCD9CF; }
+  .pill { border-radius: 999px; padding: 7px 14px; }
+  .icon { display:inline-flex; align-items:center; gap:6px; }
+</style></head>
+<body>
+<div class="card">
+  <div class="label-mono">Buttons</div>
+  <div class="row3">
+    <button class="primary">Get started</button>
+    <button class="secondary">Install for VS Code</button>
+    <button class="ghost">Learn more →</button>
+    <button class="danger">Cancel</button>
+    <button class="primary pill icon"><span style="font-family:var(--cc-font-mono);font-weight:700">&gt;_</span> Try Claude Code</button>
+  </div>
+</div>
+</body></html>

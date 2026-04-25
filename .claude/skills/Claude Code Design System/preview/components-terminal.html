@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .term { background:#161513; border-radius:12px; box-shadow: 0 24px 60px -12px rgba(31,30,27,0.25), 0 1px 0 rgba(255,255,255,0.06) inset; overflow:hidden; }
+  .titlebar { background:#1F1D1A; padding: 10px 14px; display:flex; align-items:center; gap: 8px; border-bottom: 1px solid #2E2C28; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .dot.r { background:#E36256 } .dot.y{ background:#E2BD46 } .dot.g{ background:#58C745 }
+  .title { font-family: var(--cc-font-mono); font-size:11.5px; color:#8A8780; margin-left: auto; margin-right:auto; }
+  .body { font-family: var(--cc-font-mono); font-size:12.5px; line-height:1.55; color:#ECEAE3; padding: 14px 16px; }
+  .prompt{color:#C15F3C; font-weight:700} .ok{color:#5A8E5A} .err{color:#C44141} .dim{color:#8A8780} .str{color:#4F9A99} .yel{color:#C99B2C}
+</style></head>
+<body>
+<div class="card">
+  <div class="label-mono">Terminal window · the canonical Claude Code surface</div>
+  <div class="term">
+    <div class="titlebar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="title">claude · ~/projects/my-app</span>
+    </div>
+    <div class="body">
+<span class="prompt">&gt;_</span> claude <span class="str">"add error handling to all API calls"</span><br>
+<span class="dim">●</span> Plan: 4 files to update <span class="dim">(src/api/*.ts)</span><br>
+<span class="ok">✓</span> Updated <span class="str">src/api/users.ts</span><br>
+<span class="ok">✓</span> Updated <span class="str">src/api/orders.ts</span><br>
+<span class="yel">⏵</span> Running <span class="str">npm test</span><span class="dim">…</span>
+    </div>
+  </div>
+</div>
+</body></html>

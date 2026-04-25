@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" width="220" height="40">
+  <defs>
+    
+  </defs>
+  <rect class="glyph-bg" x="0" y="6" width="32" height="32" rx="7"></rect>
+  <text class="glyph-fg" x="6" y="29">&gt;_</text>
+  <text class="word-claude" x="44" y="29">claude</text>
+  <text class="word-code" x="115" y="29">code</text>
+</svg>

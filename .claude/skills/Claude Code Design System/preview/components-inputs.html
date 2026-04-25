@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .row3 { display:flex; gap: 10px; flex-wrap:wrap; }
+  .field { display:flex; flex-direction:column; gap:4px; flex: 1 1 220px; }
+  .field label { font-family: var(--cc-font-mono); font-size: 11px; text-transform: uppercase; letter-spacing:0.04em; color: var(--cc-fg-3); }
+  input, textarea { font-family: var(--cc-font-sans); font-size: 14px; padding: 9px 12px; border: 1px solid var(--cc-border); border-radius: 6px; background: #FAF9F5; color: #1F1E1B; }
+  input:focus, textarea:focus { outline: 2px solid #C15F3C; outline-offset: 0; border-color: #C15F3C; }
+  .mono-input { font-family: var(--cc-font-mono); font-size:13px; }
+  .help { font-family: var(--cc-font-sans); font-size: 12px; color: var(--cc-fg-3); }
+</style></head>
+<body>
+<div class="card">
+  <div class="row3">
+    <div class="field">
+      <label>Project name</label>
+      <input value="my-app">
+      <span class="help">Used as the directory name</span>
+    </div>
+    <div class="field">
+      <label>API key</label>
+      <input class="mono-input" value="sk-ant-•••••••••" type="password">
+    </div>
+  </div>
+  <div class="field">
+    <label>CLAUDE.md</label>
+    <textarea class="mono-input" rows="3"># Project standards
+- Use TypeScript strict mode
+- Run tests after each edit</textarea>
+  </div>
+</div>
+</body></html>
