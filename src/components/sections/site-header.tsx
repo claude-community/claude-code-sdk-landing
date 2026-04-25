@@ -2,6 +2,7 @@ import { siteCopy } from "@/lib/sdk-data";
 import { useLang, type Lang } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { BrandIcon } from "@/components/primitives/brand-icon";
+import { ClaudeThinkingStrip } from "@/components/claude-thinking-strip";
 
 const LANGS: { key: Lang; label: string }[] = [
   { key: "en", label: "EN" },
@@ -20,6 +21,7 @@ export function SiteHeader() {
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
             {siteCopy.header.wordmark.suffix}
           </span>
+          <ClaudeThinkingStrip className="ml-2 hidden sm:inline-flex" />
         </a>
 
         <div className="flex items-center gap-2">

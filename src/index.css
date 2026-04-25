@@ -123,6 +123,7 @@
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--cc-font-sans);
+    overflow-x: hidden;
     overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
